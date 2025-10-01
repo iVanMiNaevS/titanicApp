@@ -1,0 +1,266 @@
+header {
+	text-align: center;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid var(--color2);
+}
+header.container {
+	margin: 30px auto;
+}
+
+h1 {
+	color: var(--color4);
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+header p {
+	color: var(--color4);
+	opacity: 0.8;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+.search__container {
+	display: flex;
+	justify-content: center;
+	margin: 30px 0px;
+}
+
+.search__box {
+	display: flex;
+	width: 100%;
+	max-width: 500px;
+	box-shadow: 0 4px 12px var(--shadow);
+	border-radius: 8px;
+	overflow: hidden;
+	border: 2px solid var(--color2);
+}
+
+.search__box input {
+	flex: 1;
+	padding: 14px 20px;
+	border: none;
+	font-size: 16px;
+	outline: none;
+	background: white;
+	color: var(--color4);
+}
+
+.search__box input::placeholder {
+	color: #9aa8b3;
+}
+
+.search__box button {
+	background-color: var(--color2);
+	color: white;
+	border: none;
+	padding: 0 25px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+.search__box button:hover {
+	background-color: var(--color3);
+}
+.content__wrapper {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	gap: 30px;
+	align-items: start;
+}
+
+.passenger__content {
+	min-height: 500px;
+}
+
+.passenger__table {
+	background-color: white;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px var(--shadow);
+	overflow: hidden;
+}
+
+.passenger__item {
+	padding: 20px;
+	border-bottom: 1px solid var(--color1);
+	transition: all 0.3s ease;
+	background: white;
+}
+
+.passenger__item:hover {
+	background-color: var(--color1);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px var(--shadow);
+}
+
+.passenger__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.passenger__name {
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--color4);
+}
+.passenger__age::after {
+	content: "y";
+}
+.passenger__status {
+	padding: 6px 14px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.passenger__details {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+	color: var(--color4);
+	opacity: 0.8;
+}
+
+.passenger__gender {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--color2);
+}
+
+.passenger__info {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.passenger__class {
+	font-weight: 600;
+	color: var(--color3);
+}
+
+.passenger__class::before {
+	content: "Класс ";
+	font-weight: normal;
+	color: var(--color4);
+	opacity: 0.7;
+}
+
+.passenger__ticket {
+	background: var(--color1);
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-weight: 600;
+}
+.loading {
+	text-align: center;
+	padding: 30px;
+	color: var(--color4);
+	opacity: 0.7;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.no__results {
+	text-align: center;
+	padding: 50px 30px;
+	color: var(--color4);
+	opacity: 0.7;
+	font-size: 18px;
+	font-style: italic;
+}
+
+.results__count {
+	margin: 20px;
+	padding: 15px 20px;
+	background: linear-gradient(135deg, var(--color2), var(--color3));
+	color: white;
+	border-radius: 8px;
+	font-weight: 600;
+	text-align: center;
+	box-shadow: 0 4px 15px var(--shadow);
+}
+
+.passenger__item {
+	animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 1024px) {
+	.content__wrapper {
+		grid-template-columns: 1fr;
+		gap: 25px;
+	}
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 25px;
+	}
+
+	.search__box {
+		flex-direction: column;
+		border-radius: 8px;
+	}
+
+	.search__box input {
+		border-radius: 8px 8px 0 0;
+	}
+
+	.search__box button {
+		border-radius: 0 0 8px 8px;
+		padding: 12px;
+	}
+
+	.passenger__header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.passenger__status {
+		align-self: flex-start;
+	}
+
+	.passenger__details {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.passenger__info {
+		margin-top: 5px;
+	}
+}
+
+@media (max-width: 480px) {
+	.passenger__item {
+		padding: 15px;
+	}
+
+	.passenger__name {
+		font-size: 16px;
+	}
+
+	.results__count {
+		margin: 15px;
+		padding: 12px 15px;
+		font-size: 14px;
+	}
+}

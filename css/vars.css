@@ -1,0 +1,31 @@
+:root {
+	--color1: #f1f5f8;
+	--color2: #0082fb;
+	--color3: #0064e0;
+	--color4: #1c2b33;
+	--shadow: rgba(28, 43, 51, 0.1);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: var(--color1);
+	color: var(--color4);
+}
+
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0px 20px;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 0px 15px;
+	}
+}

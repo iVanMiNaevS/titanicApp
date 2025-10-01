@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Поиски на Титанике</title>
+		<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="./css/vars.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/filters.css" />
+	</head>
+	<body>
+		<header class="container">
+			<h1>Пассажиры Титаника</h1>
+			<p>Список пассажиров с информацией о выживании</p>
+		</header>
+		<main class="container">
+			<div class="search__container">
+				<form class="search__box" role="search">
+					<input
+						type="text"
+						id="searchInput"
+						placeholder="Введите имя человека которого хотите найти"
+					/>
+					<button id="search__button">Поиск</button>
+				</form>
+			</div>
+			<div class="content__wrapper">
+				<aside class="filters__sidebar" id="filtersSidebar" aria-label="Фильтры">
+					<div class="filter__group">
+						<h3>Возраст</h3>
+						<div class="age__filter">
+							<div class="age__inputs">
+								<input type="number" id="ageMin" placeholder="От" min="0" max="100" />
+								<input type="number" id="ageMax" placeholder="До" min="0" max="100" />
+							</div>
+						</div>
+					</div>
+					<div class="filter__group">
+						<h3>Статус</h3>
+						<div class="filter__options">
+							<div class="filter__option">
+								<input
+									type="checkbox"
+									id="status-survive"
+									data-filter="status"
+									data-value="survive"
+								/>
+								<label for="status-survive">Выжил</label>
+							</div>
+							<div class="filter__option">
+								<input
+									type="checkbox"
+									id="status-survive"
+									data-filter="status"
+									data-value="survive"
+								/>
+								<label for="status-survive">Не выжил</label>
+							</div>
+						</div>
+					</div>
+				</aside>
+
+				<section class="passenger__content">
+					<ul class="passenger__table" id="passengerTable">
+						<div class="results__count">Найдено пассажиров: 1200</div>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allen, Miss. Elisabeth Walton</h3>
+									<p class="passenger__status survived">ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>
