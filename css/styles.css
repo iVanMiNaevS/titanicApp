@@ -1,8 +1,6 @@
 header {
 	text-align: center;
 	margin-bottom: 30px;
-	padding-bottom: 20px;
-	border-bottom: 2px solid var(--color2);
 }
 header.container {
 	margin: 30px auto;
@@ -16,21 +14,20 @@ h1 {
 }
 
 header p {
+	padding-bottom: 20px;
 	color: var(--color4);
 	opacity: 0.8;
 	font-size: 18px;
 	margin-bottom: 30px;
 }
 .search__container {
-	display: flex;
-	justify-content: center;
 	margin: 30px 0px;
 }
 
 .search__box {
 	display: flex;
 	width: 100%;
-	max-width: 500px;
+	/* max-width: 500px; */
 	box-shadow: 0 4px 12px var(--shadow);
 	border-radius: 8px;
 	overflow: hidden;
@@ -168,26 +165,33 @@ header p {
 	font-weight: 500;
 }
 
-.no__results {
+.no-results {
 	text-align: center;
 	padding: 50px 30px;
 	color: var(--color4);
 	opacity: 0.7;
 	font-size: 18px;
-	font-style: italic;
 }
 
 .results__count {
 	margin: 20px;
 	padding: 15px 20px;
-	background: linear-gradient(135deg, var(--color2), var(--color3));
+	background: var(--color2);
 	color: white;
 	border-radius: 8px;
 	font-weight: 600;
 	text-align: center;
 	box-shadow: 0 4px 15px var(--shadow);
 }
+.survived {
+	background: #c3e6cb;
+	color: #155724;
+}
 
+.not-survived {
+	background: #f5c6cb;
+	color: #721c24;
+}
 .passenger__item {
 	animation: fadeIn 0.3s ease-out;
 }
