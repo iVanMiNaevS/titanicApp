@@ -27,37 +27,196 @@
 			</div>
 			<div class="content__wrapper">
 				<aside class="filters__sidebar" id="filtersSidebar" aria-label="Фильтры">
-					<div class="filter__group">
-						<h3>Возраст</h3>
-						<div class="age__filter">
-							<div class="age__inputs">
-								<input type="number" id="ageMin" placeholder="От" min="0" max="100" />
-								<input type="number" id="ageMax" placeholder="До" min="0" max="100" />
+					<button class="filters__title" type="button" aria-expanded="false" id="filtersToggle">
+						<h2>Фильтры</h2>
+						<svg class="filters__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" />
+						</svg>
+					</button>
+					<div class="filters__body hidden" id="filtersBody">
+						<div class="filter__group">
+							<h3>Возраст</h3>
+							<div class="age__filter">
+								<div class="age__inputs">
+									<input type="number" id="ageMin" placeholder="От" min="0" max="100" />
+									<input type="number" id="ageMax" placeholder="До" min="0" max="100" />
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="filter__group">
-						<h3>Статус</h3>
-						<div class="filter__options">
-							<div class="filter__option">
-								<input
-									type="checkbox"
-									id="status-survive"
-									data-filter="status"
-									data-value="survive"
-								/>
-								<label for="status-survive">Выжил</label>
-							</div>
-							<div class="filter__option">
-								<input
-									type="checkbox"
-									id="status-survive"
-									data-filter="status"
-									data-value="survive"
-								/>
-								<label for="status-survive">Не выжил</label>
+
+						<div class="filter__group">
+							<h3>Пол</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input type="checkbox" id="gender-male" data-filter="gender" data-value="male" />
+									<label for="gender-male">Мужской</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="gender-female"
+										data-filter="gender"
+										data-value="female"
+									/>
+									<label for="gender-female">Женский</label>
+								</div>
 							</div>
 						</div>
+
+						<div class="filter__group">
+							<h3>Статус</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="status-survived"
+										data-filter="survived"
+										data-value="survived"
+									/>
+									<label for="status-survived">Выжил</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="status-notSurvived"
+										data-filter="survived"
+										data-value="notSurvived"
+									/>
+									<label for="status-notSurvived">Не выжил</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="filter__group">
+							<h3>Класс</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-first"
+										data-filter="passengerClass"
+										data-value="first"
+									/>
+									<label for="class-first">Первый</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-second"
+										data-filter="passengerClass"
+										data-value="second"
+									/>
+									<label for="class-second">Второй</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-third"
+										data-filter="passengerClass"
+										data-value="third"
+									/>
+									<label for="class-third">Третий</label>
+								</div>
+							</div>
+						</div>
+						<div class="filter__group">
+							<h3>Класс</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-first"
+										data-filter="passengerClass"
+										data-value="first"
+									/>
+									<label for="class-first">Первый</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-second"
+										data-filter="passengerClass"
+										data-value="second"
+									/>
+									<label for="class-second">Второй</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-third"
+										data-filter="passengerClass"
+										data-value="third"
+									/>
+									<label for="class-third">Третий</label>
+								</div>
+							</div>
+						</div>
+						<div class="filter__group">
+							<h3>Класс</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-first"
+										data-filter="passengerClass"
+										data-value="first"
+									/>
+									<label for="class-first">Первый</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-second"
+										data-filter="passengerClass"
+										data-value="second"
+									/>
+									<label for="class-second">Второй</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-third"
+										data-filter="passengerClass"
+										data-value="third"
+									/>
+									<label for="class-third">Третий</label>
+								</div>
+							</div>
+						</div>
+						<div class="filter__group">
+							<h3>Класс</h3>
+							<div class="filter__options">
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-first"
+										data-filter="passengerClass"
+										data-value="first"
+									/>
+									<label for="class-first">Первый</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-second"
+										data-filter="passengerClass"
+										data-value="second"
+									/>
+									<label for="class-second">Второй</label>
+								</div>
+								<div class="filter__option">
+									<input
+										type="checkbox"
+										id="class-third"
+										data-filter="passengerClass"
+										data-value="third"
+									/>
+									<label for="class-third">Третий</label>
+								</div>
+							</div>
+						</div>
+
+						<button class="reset-filters" id="resetFilters">Сбросить фильтры</button>
 					</div>
 				</aside>
 
@@ -96,9 +255,186 @@
 								</div>
 							</article>
 						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
+						<li>
+							<article class="passenger__item">
+								<div class="passenger__header">
+									<h3 class="passenger__name">Allison, Master. Hudson Trevor</h3>
+									<p class="passenger__status not-survived">НЕ ВЫЖИЛ</p>
+								</div>
+								<div class="passenger__details">
+									<div class="passenger__info">
+										<span class="passenger__gender">Ж</span>
+										<span class="passenger__age">29</span>
+										<span class="passenger__class">1</span>
+									</div>
+									<p class="passenger__ticket">билет: 19345</p>
+								</div>
+							</article>
+						</li>
 					</ul>
 				</section>
 			</div>
 		</main>
+		<script src="./js/ui/showFilters.js"></script>
 	</body>
 </html>

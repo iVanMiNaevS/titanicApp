@@ -12,7 +12,10 @@
 	box-sizing: border-box;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+input,
+button {
+	outline: none;
+}
 body {
 	background-color: var(--color1);
 	color: var(--color4);
