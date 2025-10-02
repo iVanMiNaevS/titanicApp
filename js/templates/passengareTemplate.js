@@ -1,4 +1,5 @@
 export function passengerTemplate(passenger) {
+
 	const age = passenger.age !== null && passenger.age !== undefined ?
 		Math.floor(passenger.age) : '?';
 

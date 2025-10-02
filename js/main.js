@@ -1,4 +1,4 @@
-import { PassengerManager } from "./managers/passengerMassenger.js";
+import { PassengerManager } from "./managers/passengerManager.js";
 
 class TitanicApp {
     constructor() {
@@ -6,8 +6,7 @@ class TitanicApp {
     }
 
     async init() {
-        await this.passengerManager.fetchJsonPassengers()
-        this.passengerManager.showAllPassengers()
+        this.passengerManager.init()
     }
 }
 
