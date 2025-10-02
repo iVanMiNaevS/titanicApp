@@ -1,9 +1,10 @@
 export function passengerTemplate(passenger) {
+	const passengerLi = document.createElement('li')
 
 	const age = passenger.age !== null && passenger.age !== undefined ?
 		Math.floor(passenger.age) : '?';
 
-	return `
+	passengerLi.innerHTML = `
 			<article class="passenger__item">
 				<div class="passenger__header">
 					<h3 class="passenger__name">${passenger.name}</h3>
@@ -21,5 +22,6 @@ export function passengerTemplate(passenger) {
 				</div>
 			</article>
         `;
+	return passengerLi
 
 }

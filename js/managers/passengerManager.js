@@ -1,4 +1,4 @@
-import { passengerTemplate } from "../templates/passengareTemplate.js";
+import { passengerTemplate } from "../templates/passengerTemplate.js";
 import { hideLoadingIndicator, showLoadingIndicator } from "../utils/visibleLoading.js"
 
 export class PassengerManager {
@@ -55,7 +55,7 @@ export class PassengerManager {
 
         const newPassengers = this.passengers.slice(startIndex, endIndex);
 
-        this.setDisplayedPassengers(newPassengers, endIndex)
+        this.setDisplayedPassengers([...this.displayedPassengers, ...newPassengers], endIndex)
 
     }
 
@@ -66,8 +66,8 @@ export class PassengerManager {
         this.renderPassengers();
     }
 
-    setDisplayedPassengers(newPassengers, endIndex) {
-        this.displayedPassengers = [...this.displayedPassengers, ...newPassengers];
+    setDisplayedPassengers(passengers, endIndex) {
+        this.displayedPassengers = passengers;
         this.currentCountPassengers = endIndex;
         this.renderPassengers();
     }
@@ -96,8 +96,6 @@ export class PassengerManager {
     }
 
     renderPassenger(passenger) {
-        const passengerLi = document.createElement('li')
-        passengerLi.innerHTML = passengerTemplate(passenger)
-        this.container.appendChild(passengerLi)
+        this.container.appendChild(passengerTemplate(passenger))
     }
 }
