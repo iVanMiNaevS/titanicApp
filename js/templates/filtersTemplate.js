@@ -7,12 +7,10 @@ export function filtersTemplate() {
     let filtersHTML = `
             <div class="filter__group">
                 <h3>Возраст</h3>
-                <div class="age__filter">
                     <div class="age__inputs">
                         <input type="number" id="ageMin" placeholder="От" min="0" max="100">
                         <input type="number" id="ageMax" placeholder="До" min="0" max="100">
                     </div>
-                </div>
             </div>
         `;
 

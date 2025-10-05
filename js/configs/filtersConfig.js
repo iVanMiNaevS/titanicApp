@@ -22,9 +22,8 @@ export const filtersConfig = {
         }
     }
 };
-
-export const filters = {
-    name: '',
+export const getDefaultFilters = (isSafeName = false, name = '') => ({
+    name: isSafeName ? name : '',
     gender: {
         male: false,
         female: false
@@ -42,4 +41,4 @@ export const filters = {
         min: '',
         max: ''
     }
-};
+});

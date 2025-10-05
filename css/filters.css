@@ -143,11 +143,6 @@
 .filter__option:hover label {
 	padding-right: 10px;
 }
-.age__filter {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
 
 .age__inputs {
 	display: flex;

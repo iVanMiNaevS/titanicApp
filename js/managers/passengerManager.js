@@ -3,7 +3,8 @@ import { hideLoadingIndicator, showLoadingIndicator } from "../utils/visibleLoad
 
 export class PassengerManager {
     constructor() {
-        this.passengers = []
+        this.allPassengers = []
+        this.currentDataSource = [];
         this.displayedPassengers = [];
         this.currentCountPassengers = 0;
         this.batchSize = 20;
@@ -22,11 +23,8 @@ export class PassengerManager {
 
             if (!res.ok) throw new Error(res.status + ' Ошибка загрузки пассажиров')
 
-            const passengers = await res.json();
-            this.passengers = passengers;
-
-            this.loadMorePassengers();
-
+            this.allPassengers = await res.json();
+            this.setDefaultDataSource();
             hideLoadingIndicator()
         } catch (error) {
             console.error('Ошибка загрузки пассажиров ' + error)
@@ -35,7 +33,6 @@ export class PassengerManager {
     }
 
     handleScroll() {
-        if (this.isLoading) return;
 
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const windowHeight = window.innerHeight;
@@ -51,21 +48,34 @@ export class PassengerManager {
 
 
         const startIndex = this.currentCountPassengers;
-        const endIndex = Math.min(startIndex + this.batchSize, this.passengers.length);
+        const endIndex = Math.min(startIndex + this.batchSize, this.currentDataSource.length);
 
-        const newPassengers = this.passengers.slice(startIndex, endIndex);
-
-        this.setDisplayedPassengers([...this.displayedPassengers, ...newPassengers], endIndex)
+        const newPassengers = this.currentDataSource.slice(startIndex, endIndex);
+        this.setDisplayedPassengers([...this.displayedPassengers, ...newPassengers], endIndex);
 
     }
 
-    // Вспомогательные функции /////////////////////////////////////////////////////////////////////
-    showAllPassengers() {
-        this.displayedPassengers = [...this.passengers];
-        this.currentCountPassengers = this.passengers.length;
-        this.renderPassengers();
+    // Публичные функции для FiltersManager /////////////////////////////////////////////////////
+    setFilteredDataSource(filteredPassengers) {
+        this.currentDataSource = filteredPassengers;
+        this.displayedPassengers = [];
+        this.currentCountPassengers = 0;
+        if (filteredPassengers.length === 0) {
+            this.renderNoResults();
+        } else {
+            this.loadMorePassengers();
+        }
     }
 
+    setDefaultDataSource() {
+        this.currentDataSource = this.allPassengers;
+        this.displayedPassengers = [];
+        this.currentCountPassengers = 0;
+        this.loadMorePassengers();
+    }
+
+
+    // Вспомогательные функции /////////////////////////////////////////////////////////
     setDisplayedPassengers(passengers, endIndex) {
         this.displayedPassengers = passengers;
         this.currentCountPassengers = endIndex;
@@ -73,17 +83,21 @@ export class PassengerManager {
     }
 
     canLoadMore() {
-        return this.currentCountPassengers < this.passengers.length;
+        return this.currentCountPassengers < this.currentDataSource.length;
     }
-
-    // Функции Рендера ////////////////////////////////////////////////////////////////////////////
+    getAllPassengers() {
+        return this.allPassengers;
+    }
+    // Функции Рендера /////////////////////////////////////////////////////////////////////
     renderPassengers() {
         this.container.innerHTML = '';
-        console.log(this.displayedPassengers)
+
         if (this.displayedPassengers.length !== 0) {
             const resultsCount = document.createElement('div');
             resultsCount.className = 'results__count';
-            resultsCount.textContent = `Показано: ${this.displayedPassengers.length} из ${this.passengers.length}`;
+
+            resultsCount.textContent = `Показано: ${this.displayedPassengers.length} из ${this.currentDataSource.length}`;
+
             this.container.appendChild(resultsCount);
 
             this.displayedPassengers.forEach(passenger => {
@@ -91,10 +105,12 @@ export class PassengerManager {
             })
 
         } else {
-            this.container.innerHTML = '<div class="no-results">Пассажиры не найдены</div>'
+            this.renderNoResults()
         }
     }
-
+    renderNoResults() {
+        this.container.innerHTML = '<div class="no-results">Пассажиры не найдены</div>'
+    }
     renderPassenger(passenger) {
         this.container.appendChild(passengerTemplate(passenger))
     }
