@@ -18,7 +18,9 @@ export class FiltersManager {
             e.preventDefault();
             this.handleSearch();
         });
-
+        this.searchInput.addEventListener('focusout', () => {
+            this.handleSearch()
+        })
         this.container.addEventListener('change', (event) => {
             this.handleFilterChange(event);
         });
@@ -77,8 +79,6 @@ export class FiltersManager {
     }
     resetFilters() {
         this.filters = getDefaultFilters(true, this.searchInput.value)
-
-        // this.searchInput.value = '';
 
         const checkboxes = this.container.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
